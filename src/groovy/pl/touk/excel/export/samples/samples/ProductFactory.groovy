@@ -4,7 +4,7 @@ import com.coderberry.faker.FakerService
 import java.math.RoundingMode
 
 class ProductFactory {
-    private static List<String> types = ["hard", "soft"]
+    private static List<String> types = ["hard", "soft", "undefined"]
     FakerService fakerService
 
     List<Product> createProducts() {
@@ -20,7 +20,7 @@ class ProductFactory {
         new Product(name: fakerService.name(), description: fakerService.paragraph(2),
                 productNumber: new Long(i), validTill: new Date(i * 100000000000),
                 price: createPrice(random),
-                type: types.getAt(i % 2))
+                type: types.getAt(i % 3))
     }
 
     private Price createPrice(Random random) {
