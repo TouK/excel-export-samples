@@ -35,30 +35,22 @@ grails.project.dependency.resolution = {
         mavenRepo("http://maven.touk.pl/nexus/content/repositories/releases")
     }
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-
-        // runtime 'mysql:mysql-connector-java:5.1.20'
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
         runtime ":excel-export:0.1.4"
         runtime ":faker:0.5"
-        test (":spock:0.6") {
-            excludes 'groovy-all'
+
+        test (":spock:0.7") {
+            excludes 'groovy-all', "spock-grails-support"
         }
 
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.7.2"
         runtime ":resources:1.1.6"
 
-        // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0"
-        //runtime ":cached-resources:1.0"
-        //runtime ":yui-minify-resources:0.1.4"
-
         build ":tomcat:$grailsVersion"
-
-        //runtime ":database-migration:1.1"
 
         compile ':cache:1.0.0'
     }
