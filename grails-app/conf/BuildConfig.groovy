@@ -34,7 +34,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime ":excel-export:0.1.4"
+        runtime ":excel-export:0.1.6"
         runtime ":faker:0.5"
 
         test (":spock:0.7") {

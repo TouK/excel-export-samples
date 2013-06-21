@@ -1,6 +1,7 @@
 package pl.touk.excel.export.samples.samples
 import org.springframework.context.MessageSource
 import pl.touk.excel.export.WebXlsxExporter
+import pl.touk.excel.export.XlsxExporter
 import pl.touk.excel.export.getters.LongToDatePropertyGetter
 import pl.touk.excel.export.getters.MessageFromPropertyGetter
 
@@ -80,6 +81,23 @@ class SampleExportController {
             fillRow(["ccc", "ddd", 87, new Date()], 2)
             putCellValue(3, 3, "Now I'm here")
             add(products, withProperties, 4)
+            save(response.outputStream)
+        }
+    }
+
+    def webExportWithTemplate() {
+        String path = "/tmp/fileWithField.xlsx"
+
+        new XlsxExporter(path, '/tmp/fileWithField3.xlsx').with {
+            putCellValue(0, 0, "2")
+            putCellValue(0, 1, "2")
+            save()
+        }
+
+        new WebXlsxExporter(path).with {
+            setResponseHeaders(response)
+            putCellValue(0, 0, "3")
+            putCellValue(0, 1, "3")
             save(response.outputStream)
         }
     }
