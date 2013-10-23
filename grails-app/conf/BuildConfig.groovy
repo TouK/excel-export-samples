@@ -2,9 +2,10 @@ grails.servlet.version = "2.5" // Change depending on target container complianc
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
-grails.project.target.level = 1.6
-grails.project.source.level = 1.6
+grails.project.target.level = 1.7
+grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+//grails.plugin.location.'excel-export' = "/home/jnb/workspace/excel-export"
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -31,10 +32,11 @@ grails.project.dependency.resolution = {
 
     dependencies {
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+        compile "net.sf.ehcache:ehcache-core:2.4.6"
     }
 
     plugins {
-        runtime ":excel-export:0.1.6"
+        runtime ":excel-export:0.1.8"
         runtime ":faker:0.5"
 
         test (":spock:0.7") {
@@ -44,7 +46,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.7.2"
         runtime ":resources:1.1.6"
 
-        build ":tomcat:$grailsVersion"
+        build ":tomcat:7.0.42"
 
         compile ':cache:1.0.0'
     }

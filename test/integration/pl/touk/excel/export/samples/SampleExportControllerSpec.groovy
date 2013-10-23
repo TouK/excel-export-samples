@@ -1,6 +1,6 @@
 
 package pl.touk.excel.export.samples
-import grails.plugin.spock.IntegrationSpec
+import grails.test.spock.IntegrationSpec
 import pl.touk.excel.export.samples.samples.SampleExportController
 import spock.lang.Unroll
 
