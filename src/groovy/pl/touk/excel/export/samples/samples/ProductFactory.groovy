@@ -1,11 +1,9 @@
 package pl.touk.excel.export.samples.samples
-import com.coderberry.faker.FakerService
 
 import java.math.RoundingMode
 
 class ProductFactory {
     private static List<String> types = ["hard", "soft", "undefined"]
-    FakerService fakerService
 
     List<Product> createProducts() {
         Random random = Random.newInstance()
@@ -17,7 +15,7 @@ class ProductFactory {
     }
 
     private Product createProduct(int i, Random random) {
-        new Product(name: fakerService.name(), description: fakerService.paragraph(2),
+        new Product(name: "some name $i", description: "Lorem ipsum $i",
                 productNumber: new Long(i), validTill: new Date(i * 100000000000),
                 price: createPrice(random),
                 type: types.getAt(i % 3))
