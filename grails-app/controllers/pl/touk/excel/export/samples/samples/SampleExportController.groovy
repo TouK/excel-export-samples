@@ -101,4 +101,32 @@ class SampleExportController {
             save(response.outputStream)
         }
     }
+
+    def exportWithMultipleSheets() {
+            List<Product> products = productFactory.createProducts()
+            def withProperties = ['name', 'description', 'validTill', 'productNumber', 'price.value']
+
+            new WebXlsxExporter().with {
+                setResponseHeaders(response)
+                add( products, withProperties )
+                sheet('second sheet').with {
+                    fillHeader(withProperties)
+                    add( products, withProperties )
+                }
+                save(response.outputStream)
+            }
+    }
+
+    def exportWithChangedNameForFirstSheet() {
+        List<Product> products = productFactory.createProducts()
+        def withProperties = ['name', 'description', 'validTill', 'productNumber', 'price.value']
+
+        WebXlsxExporter webXlsxExporter = new WebXlsxExporter()
+        webXlsxExporter.setWorksheetName("products")
+        webXlsxExporter.with {
+            setResponseHeaders(response)
+            add( products, withProperties )
+            save(response.outputStream)
+        }
+    }
 }
