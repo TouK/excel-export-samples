@@ -12,11 +12,13 @@ class SampleExportControllerSpec extends IntegrationSpec {
         when:
             controller.invokeMethod(methodName, null)
         then:
+            controller.response.status == 200
             controller.response.getHeader('Content-Type') == 'application/vnd.ms-excel'
             controller.response.getHeader('Content-disposition').startsWith('attachment')
         where:
             methodName << ['simplestExport', 'i18nExport', 'exportWithBuildInGetters', 'exportWithCustomGetter',
-                    'exportWithDirectManipulation', 'exportWithMultipleSheets', 'exportWithChangedNameForFirstSheet']
+                    'exportWithDirectManipulation', 'exportWithMultipleSheets', 'exportWithChangedNameForFirstSheet',
+                    'exportObjectsWithToString']
 
     }
 

@@ -38,7 +38,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime ":excel-export:0.2.0"
+        runtime ":excel-export:0.2.1"
 
         test (":spock:0.7") {
             excludes 'groovy-all', "spock-grails-support"

@@ -129,4 +129,17 @@ class SampleExportController {
             save(response.outputStream)
         }
     }
+
+    def exportObjectsWithToString() {
+        List<Product> products = productFactory.createProducts()
+        def withProperties = ['name', 'price', 'price.value']
+        def headers = withProperties
+
+        new WebXlsxExporter().with {
+            setResponseHeaders(response)
+            fillHeader(headers)
+            add(products, withProperties)
+            save(response.outputStream)
+        }
+    }
 }
