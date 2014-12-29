@@ -20,16 +20,11 @@ grails.project.dependency.resolution = {
     checksums true // Whether to verify checksums on resolve
 
     repositories {
-        inherits false // Whether to inherit repository definitions from plugins
-
         grailsPlugins()
         grailsHome()
         grailsCentral()
-
         mavenLocal()
         mavenCentral()
-
-        //mavenRepo("http://maven.touk.pl/nexus/content/repositories/releases")
     }
 
     dependencies {
@@ -44,11 +39,6 @@ grails.project.dependency.resolution = {
             excludes 'groovy-all', "spock-grails-support"
         }
 
-        runtime ":jquery:1.7.2"
-        runtime ":resources:1.1.6"
-
         build ":tomcat:7.0.42"
-
-        compile ':cache:1.0.0'
     }
 }
