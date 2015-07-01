@@ -44,3 +44,5 @@
 # other
 *.iws
 
+.gradle/
+build/
