@@ -1,4 +1,4 @@
-package pl.touk.excel.export.samples.samples
+package pl.touk.excel.export.samples
 
 import pl.touk.excel.export.getters.PropertyGetter
 

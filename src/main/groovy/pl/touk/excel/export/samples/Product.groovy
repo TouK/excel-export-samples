@@ -1,4 +1,4 @@
-package pl.touk.excel.export.samples.samples
+package pl.touk.excel.export.samples
 
 class Product {
     String name
