@@ -1,4 +1,5 @@
-package pl.touk.excel.export.samples.samples
+package pl.touk.excel.export.samples
+
 import org.springframework.context.MessageSource
 import pl.touk.excel.export.WebXlsxExporter
 import pl.touk.excel.export.XlsxExporter
